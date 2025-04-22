@@ -2,7 +2,7 @@
 @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css');
 
 :root {
-    --background: 20, 25, 24;
+    --background: 20, 23, 25;
     --text: 222, 226, 227;
     --primary: 92, 174, 178;
     --secondary: 124, 182, 159;
@@ -43,7 +43,6 @@ body {
     background-color: rgb(var(--background));
     color: rgb(var(--text));
     font-size: 16px;
-    line-height: 1.5;
 }
 a {
     color: hsl(var(--text));
@@ -68,7 +67,7 @@ a:focus:not(:focus-visible) {
 
 /* ---- NAVBAR ---- */
 header {
-    position: sticky;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
@@ -79,12 +78,16 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 7vh;
-    background-color: rgb(var(--primary));
+    background-color: rgb(var(--primary-50));
+    color: rgb(var(--text))
+}
+h2 {
+    font-size: 4.5vh;
+    padding: .5vh;
 }
 .menu-stack {
     display: flex;
     flex-direction: column;
-
 }
 
 .navbar input {
@@ -94,26 +97,26 @@ header {
     grid-area: hamburger;
     cursor: pointer;
     display: flex;
-    justify-content: flex-end;
-    align-items: baseline;
-    padding: 4.5vh 3vw 4.5vh 3vw;
+    justify-content: center;
+    align-items: center;
+    padding: 4vh 3vw 4vh 3vw;
     position: relative;
     user-select: none;
     visibility: visible;
 }
 .navicon {
-    background: rgb(var(--text));
     display: block;
     height: 2px;
-    width: 18px;
+    width: 20px;
     position: relative;
     cursor: pointer;
+    background-color: rgb(var(--text));
   }
   .navicon:before {
-    top: 5px;
+    top: 6px;
   }
   .navicon:after {
-    top: -5px;
+    top: -6px;
   }
   .navicon:before, .navicon:after {
     background: rgb(var(--text));
@@ -127,6 +130,7 @@ header {
 
 .menu-btn:checked ~ .menu {
     visibility: visible;
+    animation: slideInLeft 0.3s ease-in-out;
 }
 
   .menu-btn:checked ~ .menu-icon .navicon {
@@ -152,17 +156,16 @@ header {
     left: 0;
     top: 0;
     padding: 1.5vh 4vw;
-    margin: 6vh 0;
+    margin: 6.975vh 0;
     min-height: 100vh;
     max-height: 100vh;
-    background-color: rgba(var(--primary-50));
+    background-color: rgb(var(--primary-50));
     background-attachment: cover;
-    border-radius: 10px;
-
+    border-radius: 0 0 10px 10px;
 }
 .menu a, summary {
-    padding: .7vh 1vh;
-    font-size: 1.4rem;
+    padding: 1.2vh 1vh;
+    font-size: 1.3rem;
     color: rgb(var(--text));
     text-align: left;
     display: flex;
@@ -183,4 +186,13 @@ header {
 }
 .sub-menu a {
     font-size: 1.2rem;
+}
+.clickable {
+    cursor: pointer;
+    padding: 0 2.3vw;
+    margin-top: .5vh;
+    font-size: 1.6rem;
+}
+.clickable a {
+    padding: 0 .7vw;
 }
