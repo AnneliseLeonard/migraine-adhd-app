@@ -1,29 +1,186 @@
+@import "tailwindcss";
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css');
+
 :root {
-    --background: (168 11% 9%);
-    --text: (192 8% 88%);
-    --primary: (183 36% 53%);
-    --secondary: (156 28% 60%);
-    --accent: (12 70% 66%);
-    --background-25: (168 11% 9% / .25);
-    --background-50: (168 11% 9% / .5);
-    --background-75: (168 11% 9% / .75);
-    --background-90: (168 11% 9% / .9);
-    --text-25: (192 8% 88% / .25);
-    --text-50: (192 8% 88% / .5);
-    --text-75: (192 8% 88% / .75);
-    --text-90: (192 8% 88% / .9);
-    --primary-25: (183 36% 53% / .25);
-    --primary-50: (183 36% 53% / .5);
-    --primary-75: (183 36% 53% / .75);
-    --primary-90: (183 36% 53% / .9);
-    --secondary-25: (156 28% 60% / .25);
-    --secondary-50: (156 28% 60% / .5);
-    --secondary-75: (156 28% 60% / .75);
-    --secondary-90: (156 28% 60% / .9);
-    --accent-25: (12 70% 66% / .25);
-    --accent-50: (12 70% 66% / .5);
-    --accent-75: (12 70% 66% / .75);
-    --accent-90: (12 70% 66% /.9);
+    --background: 20, 25, 24;
+    --text: 222, 226, 227;
+    --primary: 92, 174, 178;
+    --secondary: 124, 182, 159;
+    --accent: 229, 132, 108;
+    --background-25: 20, 25, 24, .25;
+    --background-50: 20, 25, 24, .5;
+    --background-75: 20, 25, 24, .75;
+    --background-90: 20, 25, 24, .9;
+    --text-25: 222, 226, 227, .25;
+    --text-50: 222, 226, 227, .5;
+    --text-75: 222, 226, 227, .75;
+    --text-90: 222, 226, 227, .9;
+    --primary-25: 92, 174, 178, .25;
+    --primary-50: 92, 174, 178, .5;
+    --primary-75: 92, 174, 178, .75;
+    --primary-90: 92, 174, 178, .9;
+    --secondary-25: 124, 182, 159, .25;
+    --secondary-50: 124, 182, 159, .5;
+    --secondary-75: 124, 182, 159, .75;
+    --secondary-90: 124, 182, 159, .9;
+    --accent-25: 229, 132, 108, .25;
+    --accent-50: 229, 132, 108, .5;
+    --accent-75: 229, 132, 108, .75;
+    --accent-90: 229, 132, 108, .9;
     --text-header: "Crimson Pro", serif;
     --text-body: "Montserrat", sans-serif;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--text-body);
+}
+:is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--text-header);
+}
+body {
+    background-color: rgb(var(--background));
+    color: rgb(var(--text));
+    font-size: 16px;
+    line-height: 1.5;
+}
+a {
+    color: hsl(var(--text));
+    text-decoration: none;
+}
+a:hover {
+    color: hsl(var(--primary));
+}
+a:focus {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+}
+a:focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+}
+a:focus:not(:focus-visible) {
+    outline: none;
+}
+
+
+
+/* ---- NAVBAR ---- */
+header {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 7vh;
+    background-color: rgb(var(--primary));
+}
+.menu-stack {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.navbar input {
+    display: none;
+}
+.menu-icon {
+    grid-area: hamburger;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    padding: 4.5vh 3vw 4.5vh 3vw;
+    position: relative;
+    user-select: none;
+    visibility: visible;
+}
+.navicon {
+    background: rgb(var(--text));
+    display: block;
+    height: 2px;
+    width: 18px;
+    position: relative;
+    cursor: pointer;
+  }
+  .navicon:before {
+    top: 5px;
+  }
+  .navicon:after {
+    top: -5px;
+  }
+  .navicon:before, .navicon:after {
+    background: rgb(var(--text));
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    transition: all 0.2s ease-out;
+  }
+
+.menu-btn:checked ~ .menu {
+    visibility: visible;
+}
+
+  .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  .menu-btn:checked ~ .menu-icon .navicon:before,
+  .menu-btn:checked ~ .menu-icon .navicon:after {
+    top: 0;
+  }
+
+.menu {
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    left: 0;
+    top: 0;
+    padding: 1.5vh 4vw;
+    margin: 6vh 0;
+    min-height: 100vh;
+    max-height: 100vh;
+    background-color: rgba(var(--primary-50));
+    background-attachment: cover;
+    border-radius: 10px;
+
+}
+.menu a, summary {
+    padding: .7vh 1vh;
+    font-size: 1.4rem;
+    color: rgb(var(--text));
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+}
+.sub-menu {
+    padding-left: 4vh;
+}
+.main-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.main-nav i {
+    margin-top: .5vh;
+}
+.sub-menu a {
+    font-size: 1.2rem;
 }
