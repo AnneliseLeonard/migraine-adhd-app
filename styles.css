@@ -1,11 +1,12 @@
 @import "tailwindcss";
 @import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css');
+@import 'animate.css';
 
 :root {
     --background: 20, 23, 25;
     --text: 222, 226, 227;
     --primary: 92, 174, 178;
-    --secondary: 124, 182, 159;
+    --secondary: 128, 182, 156;
     --accent: 229, 132, 108;
     --background-25: 20, 25, 24, .25;
     --background-50: 20, 25, 24, .5;
@@ -19,10 +20,10 @@
     --primary-50: 92, 174, 178, .5;
     --primary-75: 92, 174, 178, .75;
     --primary-90: 92, 174, 178, .9;
-    --secondary-25: 124, 182, 159, .25;
-    --secondary-50: 124, 182, 159, .5;
-    --secondary-75: 124, 182, 159, .75;
-    --secondary-90: 124, 182, 159, .9;
+    --secondary-25: 128, 182, 156, .25;
+    --secondary-50: 128, 182, 156, .5;
+    --secondary-75: 128, 182, 156, .75;
+    --secondary-90: 128, 182, 156, .9;
     --accent-25: 229, 132, 108, .25;
     --accent-50: 229, 132, 108, .5;
     --accent-75: 229, 132, 108, .75;
@@ -132,7 +133,6 @@ h2 {
     visibility: visible;
     animation: slideInLeft 0.3s ease-in-out;
 }
-
   .menu-btn:checked ~ .menu-icon .navicon {
     background: transparent;
   }
@@ -146,7 +146,7 @@ h2 {
   .menu-btn:checked ~ .menu-icon .navicon:after {
     top: 0;
   }
-
+  
 .menu {
     visibility: hidden;
     position: absolute;
